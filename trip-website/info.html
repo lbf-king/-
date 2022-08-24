@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="/styles/base.css" rel="stylesheet" type="text/css">
+    <link href="/styles/regist.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery-form/jquery.form.js"></script>
+    <script src="/js/plugins/js-cookie/js.cookie.min.js"></script>
+    <script src="/js/vue/md5.js"></script>
+    <script type="text/javascript" src="/js/vue/common.js"></script>
+    <script type="text/javascript" src="/js/system/regist.js"></script>
+
+</head>
+<body>
+<script>
+    $(function () {
+
+
+        // ajaxGet("/test2", {a:1, b:2, c:3, d:4}, function (data) {
+        //     console.log(data);
+        // })
+
+        //测试  贴了自定义注解SpringMvc参数解析器   有数据
+        // "code":200,"msg":"操作成功","data":{"id":1,"nickname":"dafei","phone":"13700000000"
+        ajaxRequest("/travels/info", "GET", {}, function (data) {
+            console.log(data, 1);
+        })
+
+        //测试  没贴自定义注解SpringMvc参数解析器   没数据  只有  自己带过去的数据
+        //{"code":200,"msg":"操作成功","data":{"id":null,"nickname":"xxx","phone":null,"email":null,
+        ajaxRequest("/travels/userInfo", "GET", {nickname: "xxx"}, function (data) {
+            console.log(data, 222);
+        })
+
+    })
+
+</script>
+
+
+
+</body>
+</html>
